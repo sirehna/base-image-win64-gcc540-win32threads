@@ -10,22 +10,28 @@ services:
 - docker
 env:
   global:
-  - DOCKER_USERNAME=gjacquenot
-  - secure: WdjYJVGFXpSIzQInXADfyW7xbm3HZhLkkebL+FNjEWkVaXQSJvHRj1VyfPQZhVsvz2K0SmtkMrkGbEwenjcMzDy+e9Ahjjz2MsRR6iIbTncQybjTdzRkRWI2RJlm+QuyfWxI6IvhJDIGluC8OB+jrT0h2vw933Ce68IaTUcq24xyQjpelUmbloWwUSxKGWogmnFIUsOVMnkZCiatXxCvnm1xeTS/XoyLkDPg5diLmN9mub6/KcC4ZQz1o7y9AYndGHqL8kkyS7BAp0IRolqvrj9EKTPPr8ulvuIB1SK/0/k649TyGtuLJ/f6Hn44ekRamVzs7GqfIwOWCLkWy83XIezgK9SqQ6zxdf0y86ScuNeDXkuNplmzqmmsZSA82dzQC/EY5WPTIi+lKs2YlrdS3Qg4fsZVmz5Ztt/R2zADuUv2fMEl9tHsDYf2+7n18nDlJ07rwksFGjtPOoK0PR3kKbOI5o3ghTWUWNzarStcDHDTKcm2aCOL2h87YM/gJFTTSpCpk//jJafZEg2J53titbi3FST2zAgsIiuJxPC+EIm7jXxtokZApDXTzeI81+CEcD80AUlCKzWMz9EvIHYUAYlqDtR5H/ah1oj2RYyJIr/QjqOvsVJCLQtWjMQa4o+z7BW1gP71j8mzhTXf4/arJXhciHt/HMz7EiMSD9jX5CE=
+  - DOCKER_USERNAME=guillaumejacquenot
+  - secure: "IWwQw7AQdhkb9C/ggCmM3OcIRnfxHA36GXB2GwU6M51t2X06GV+DnHFqMvRj8WleOQO0BXpk27YWo+pc7RNWK+9iaSeRs191oVTv4Wynd8GV/627737w474KZ9+qc61H58dTjmBelIy8CxKK0KWgyDF7niO10Ld+3zao9pwu6f17YJ3ZzSylN7jOABbzMSlW4xev2sxpXVl139HETt23xJc/7cgmCT1scFaEawVm/ZnejWhSX3VFLYVbjnsWEz8oljrjgykmyArAt4xJmiLyttKJBSYx4ln2Wq6mhplOvQaiHpz19ZXrgNf5D9O8GVDFEfNicPoW0WiogJNeDDdI5VbcwzzaO9Pm8LqptmKcTm0KrlYuolxjDIO/1wnaEcLe9d0EYLIzyeA2jTkpY2kT/gm72sBXues0nuH1PcDtiBkBIY7akJVDhVgI0pek3zE+IxaANYey5qPl0i58E7SyxEjbps7TQo5o90cWDZ4zqQaIB9fbPIUyD0ZEehgpScLmMwrsPApp71Gd+PSt/CFNk7aZ/GI4+HAsdZeA8P7ORVvZF9+5mqYvCdqaLqyFVmX5ERYuAvMwIEGtJbYecy0FrOgrMJSYZruE444eWDVDHuBrYNk72p0dGgiEBWZtogA0tWgYZV12XBzWRfW7sQ3wpY0YnD1Gb4hGi1wq+eBjiyk="
 
 before_install:
 - echo "Before install"
+
 before_script:
-- docker pull gjacquenot/ssc_build_win64 || true
+- docker pull sirehna/base-image-win64-gcc540-win32threads || true
+
 script:
-- docker build --pull --cache-from gjacquenot/ssc_build_win64 --tag gjacquenot/ssc_build_win64 .
+- docker build --pull --cache-from sirehna/base-image-win64-gcc540-win32threads --tag sirehna/base-image-win64-gcc540-win32threads .
+
 after_script:
 - docker images
+
 after_success:
 - if [[ "$TRAVIS_BRANCH" == "master" ]];
   then
   docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD;
-  docker push gjacquenot/ssc_build_win64;
+  docker push sirehna/base-image-win64-gcc540-win32threads;
   fi
+
 notifications:
   email: true
+
