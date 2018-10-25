@@ -1,9 +1,9 @@
-# ssc_build_win64
+# sirehna/base-image-win64-gcc540-win32threads
 
-[![Build Status](https://travis-ci.org/Gjacquenot/ssc_build_win64.svg?branch=master)](https://travis-ci.org/Gjacquenot/ssc_build_win64)
+[![Build Status](https://travis-ci.org/sirehna/base-image-win64-gcc540-win32threads.svg?branch=master)](https://travis-ci.org/sirehna/base-image-win64-gcc540-win32threads)
 
-[![](https://images.microbadger.com/badges/image/gjacquenot/ssc_build_win64.svg)](https://microbadger.com/images/gjacquenot/ssc_build_win64 "ssc_build_win64")
+[![](https://images.microbadger.com/badges/image/sirehna/base-image-win64-gcc540-win32threads.svg)](https://microbadger.com/images/sirehna/base-image-win64-gcc540-win32threads "sirehna/base-image-win64-gcc540-win32threads")
 
-This repository contains the [`Dockerfile`](Dockerfile) used to build [`ssc`](https://github.com/Gjacquenot/ssc).
+This repository contains the [`Dockerfile`](Dockerfile) used to build [`ssc`](https://github.com/sirehna/base-image-win64-gcc540-win32threads).
 
-The generated docker image is stored on [docker hub](https://hub.docker.com/r/gjacquenot/ssc_build_win64), and can be pulled with `docker pull gjacquenot/ssc_build_win64`.
+The generated docker image is stored on [docker hub](https://hub.docker.com/r/sirehna/base-image-win64-gcc540-win32threads), and can be pulled with `docker pull sirehna/base-image-win64-gcc540-win32threads`.
